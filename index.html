@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="logo">   
+    <img src="pictures/Seat Logo.png" alt="">
+    <h1>Savory Bites</h1>
+    <h2>Quality every deliver.</h2>
+    </div> 
+
+   
+<form>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+    </div>
+    <div class="dropdown" id="cuisineDropdown">
+        <label for="cuisine">Type of Cuisine:</label>
+        <div class="dropdown-toggle" onclick="toggleDropdown('cuisineDropdown')">
+            <span id="selectedCuisine">Choose Cuisine</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <ul class="dropdown-content">
+            <li><a href="#" data-value="italian" onclick="selectCuisine(event)">Italian</a></li>
+            <li><a href="#" data-value="chinese" onclick="selectCuisine(event)">Chinese</a></li>
+            <li><a href="#" data-value="mexican" onclick="selectCuisine(event)">Mexican</a></li>
+        </ul>
+        <input type="hidden" id="cuisine" name="cuisine">
+    </div>
+
+    <div class="dropdown" id="paymentDropdown">
+        <label for="modeOfPayment">Mode of Payment:</label>
+        <div class="dropdown-toggle" onclick="toggleDropdown('paymentDropdown')">
+            <span id="selectedMop">Choose Payment Method</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <ul class="dropdown-content">
+            <li><a href="#" data-value="Cash" onclick="selectedMop(event)">Cash</a></li>
+            <li><a href="#" data-value="Gcash" onclick="selectedMop(event)">Gcash</a></li>
+            <li><a href="#" data-value="PayMaya" onclick="selectedMop(event)">PayMaya</a></li>
+        </ul>
+        <input type="hidden" id="modeOfPayment" name="mop">
+    </div>
+
+    <div>
+        <label for="dineInTakeOut">Dine In/Take Out:</label>
+        <select id="dineInTakeOut" name="dineInTakeOut">
+            <option value="dineIn">Dine In</option>
+            <option value="takeOut">Take Out</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="comments">Comments/Note:</label>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+    </div>
+
+    <div>
+        <label for="orderPlaced">Order Placed:</label>
+        <input type="checkbox" id="orderPlaced" name="orderPlaced">
+    </div>
+
+    <button type="submit">Place Order</button>
+    <button type="cancel" onclick="cancelOrder()">Cancel</button>
+    
+</form>
+
+    <script src="index.js"></script>
+</body>
+</html>
