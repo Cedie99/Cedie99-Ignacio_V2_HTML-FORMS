@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Center the container vertically */
+    height: 100vh; /* Make the body fill the viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: #f4f4f4; /* Optional background color */
+    background-image: url(pictures/food.jpg);
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    width: 500px;
+    padding: 20px; /* Optional padding */
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px; 
+}
