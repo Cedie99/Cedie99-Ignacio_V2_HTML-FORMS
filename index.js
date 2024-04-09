@@ -1,3 +1,4 @@
+// DROPDOWN 
 function toggleDropdown(dropdownId) {
     var dropdownContent = document.getElementById(dropdownId).querySelector('.dropdown-content');
     dropdownContent.classList.toggle('open');
@@ -19,13 +20,37 @@ function selectedMop(event) {
     toggleDropdown('paymentDropdown');
 }
 
-const placeOrderButton = document.querySelector('button[type="submit"]');
-placeOrderButton.addEventListener('click', function(event) {
-    alert("Order placed!");
+
+// PLACE ORDER BUTTON
+document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    let anyFieldEmpty = false;
+    const inputFields = document.querySelectorAll('input[type="text"], input[type="email"], input[type="number"]');
+
+    // Check if any input field is empty
+    inputFields.forEach(function(inputField) {
+        if (inputField.value.trim() === '') {
+            anyFieldEmpty = true;
+        }
+    });
+
+    const cuisineField = document.querySelector('#cuisine');
+    const paymentMethodField = document.querySelector('#modeOfPayment');
+
+    // Check if cuisineField or paymentMethodField is not selected
+    if (cuisineField.value === '' || paymentMethodField.value === '' || anyFieldEmpty) {
+        alert("Error: Please fill out all required fields.");
+    } else {
+        window.location.href = "op.html";
+    }
 });
 
 
 
+
+
+// CANCEL ORDER BUTTON
 function cancelOrder() {
     
     document.getElementById('selectedCuisine').innerText = 'Choose Cuisine';
@@ -42,5 +67,6 @@ function cancelOrder() {
 
     document.getElementById('orderPlaced').checked = false;
 }
+
 
 
